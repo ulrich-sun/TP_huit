@@ -1,0 +1,143 @@
+2024-02-16 14:23:01,131 p=6673 u=centos n=ansible | Starting galaxy role install process
+2024-02-16 14:23:01,418 p=6673 u=centos n=ansible | - extracting ansible-role-containerized-wordpress to /home/TP_huit/roles/ansible-role-containerized-wordpress
+2024-02-16 14:23:01,421 p=6673 u=centos n=ansible | - ansible-role-containerized-wordpress was installed successfully
+2024-02-16 14:27:15,281 p=6763 u=centos n=ansible | Encryption successful
+2024-02-16 14:30:03,254 p=6769 u=centos n=ansible | PLAY [Installation Wordpress] ***********************************************************************************************
+2024-02-16 14:30:03,282 p=6769 u=centos n=ansible | ERROR! vars file files/secrets/credentials.yml was not found
+Could not find file on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2024-02-16 14:30:21,186 p=6777 u=centos n=ansible | PLAY [Installation Wordpress] ***********************************************************************************************
+2024-02-16 14:30:21,208 p=6777 u=centos n=ansible | ERROR! vars file files/secrets/credentials.yml was not found
+Could not find file on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2024-02-16 14:32:02,681 p=6786 u=centos n=ansible | PLAY [Installation Wordpress] ********************************************************************************************************
+2024-02-16 14:32:02,703 p=6786 u=centos n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2024-02-16 14:32:04,237 p=6786 u=centos n=ansible | ok: [eric]
+2024-02-16 14:32:04,257 p=6786 u=centos n=ansible | TASK [download docker_compose] *******************************************************************************************************
+2024-02-16 14:32:05,084 p=6786 u=centos n=ansible | changed: [eric]
+2024-02-16 14:32:05,125 p=6786 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Setup compose dir structure] ************************************************************
+2024-02-16 14:32:05,684 p=6786 u=centos n=ansible | failed: [eric] (item=wordpress) => {"ansible_loop_var": "item", "changed": false, "gid": 0, "group": "root", "item": "wordpress", "mode": "0755", "msg": "chown failed: failed to look up user ubuntu", "owner": "root", "path": "/home/ubuntu", "secontext": "unconfined_u:object_r:home_root_t:s0", "size": 6, "state": "directory", "uid": 0}
+2024-02-16 14:32:06,066 p=6786 u=centos n=ansible | failed: [eric] (item=wp-db-data) => {"ansible_loop_var": "item", "changed": false, "gid": 0, "group": "root", "item": "wp-db-data", "mode": "0755", "msg": "chown failed: failed to look up user ubuntu", "owner": "root", "path": "/home/ubuntu/compose-wordpress", "secontext": "unconfined_u:object_r:home_root_t:s0", "size": 6, "state": "directory", "uid": 0}
+2024-02-16 14:32:06,498 p=6786 u=centos n=ansible | failed: [eric] (item=logs/nginx) => {"ansible_loop_var": "item", "changed": false, "gid": 0, "group": "root", "item": "logs/nginx", "mode": "0755", "msg": "chown failed: failed to look up user ubuntu", "owner": "root", "path": "/home/ubuntu/compose-wordpress/logs", "secontext": "unconfined_u:object_r:home_root_t:s0", "size": 6, "state": "directory", "uid": 0}
+2024-02-16 14:32:06,501 p=6786 u=centos n=ansible | PLAY RECAP ***************************************************************************************************************************
+2024-02-16 14:32:06,501 p=6786 u=centos n=ansible | eric                       : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-16 14:44:23,157 p=6914 u=centos n=ansible | PLAY [Installation Wordpress] ********************************************************************************************************
+2024-02-16 14:44:23,177 p=6914 u=centos n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2024-02-16 14:44:24,731 p=6914 u=centos n=ansible | ok: [eric]
+2024-02-16 14:44:24,752 p=6914 u=centos n=ansible | TASK [download docker_compose] *******************************************************************************************************
+2024-02-16 14:44:25,606 p=6914 u=centos n=ansible | ok: [eric]
+2024-02-16 14:44:25,638 p=6914 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Setup compose dir structure] ************************************************************
+2024-02-16 14:44:26,295 p=6914 u=centos n=ansible | changed: [eric] => (item=wordpress)
+2024-02-16 14:44:26,727 p=6914 u=centos n=ansible | changed: [eric] => (item=wp-db-data)
+2024-02-16 14:44:27,099 p=6914 u=centos n=ansible | changed: [eric] => (item=logs/nginx)
+2024-02-16 14:44:27,124 p=6914 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Create docker-compose.yml file] *********************************************************
+2024-02-16 14:44:27,502 p=6914 u=centos n=ansible | changed: [eric]
+2024-02-16 14:44:27,529 p=6914 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Deploy uploads.ini to WordPress "/home/centos/compose-wordpress" dir] *******************
+2024-02-16 14:44:28,598 p=6914 u=centos n=ansible | fatal: [eric]: FAILED! => {"changed": false, "checksum": "341f752174eab7e01366a6013c4a4923b6e0aa74", "gid": 0, "group": "root", "mode": "0644", "msg": "chown failed: failed to look up user www-data", "owner": "root", "path": "/home/centos/compose-wordpress/wordpress/uploads.ini", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 108, "state": "file", "uid": 0}
+2024-02-16 14:44:28,600 p=6914 u=centos n=ansible | PLAY RECAP ***************************************************************************************************************************
+2024-02-16 14:44:28,600 p=6914 u=centos n=ansible | eric                       : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-16 14:48:50,479 p=7051 u=centos n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/TP_huit/playbooks/worldpress.yml': line 10, column 29, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  pre_tasks:
+    - name: "creation user "www-data"
+                            ^ here
+We could be wrong, but this one looks like it might be an issue with
+unbalanced quotes. If starting a value with a quote, make sure the
+line ends with the same set of quotes. For instance this arbitrary
+example:
+
+    foo: "bad" "wolf"
+
+Could be written as:
+
+    foo: '"bad" "wolf"'
+
+2024-02-16 14:49:19,664 p=7055 u=centos n=ansible | PLAY [Installation Wordpress] *************************************************************************************************************
+2024-02-16 14:49:19,686 p=7055 u=centos n=ansible | TASK [Gathering Facts] ********************************************************************************************************************
+2024-02-16 14:49:21,253 p=7055 u=centos n=ansible | ok: [eric]
+2024-02-16 14:49:21,275 p=7055 u=centos n=ansible | TASK [creation user www-data] *************************************************************************************************************
+2024-02-16 14:49:21,918 p=7055 u=centos n=ansible | changed: [eric]
+2024-02-16 14:49:21,936 p=7055 u=centos n=ansible | TASK [download docker_compose] ************************************************************************************************************
+2024-02-16 14:49:22,743 p=7055 u=centos n=ansible | ok: [eric]
+2024-02-16 14:49:22,779 p=7055 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Setup compose dir structure] *****************************************************************
+2024-02-16 14:49:23,479 p=7055 u=centos n=ansible | changed: [eric] => (item=wordpress)
+2024-02-16 14:49:23,806 p=7055 u=centos n=ansible | ok: [eric] => (item=wp-db-data)
+2024-02-16 14:49:24,124 p=7055 u=centos n=ansible | ok: [eric] => (item=logs/nginx)
+2024-02-16 14:49:24,145 p=7055 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Create docker-compose.yml file] **************************************************************
+2024-02-16 14:49:24,546 p=7055 u=centos n=ansible | changed: [eric]
+2024-02-16 14:49:24,568 p=7055 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Deploy uploads.ini to WordPress "/home/centos/compose-wordpress" dir] ************************
+2024-02-16 14:49:25,368 p=7055 u=centos n=ansible | changed: [eric]
+2024-02-16 14:49:25,387 p=7055 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Deploy Docker Compose project for Wordpress/MySQL/Nginx (Let's Encrypt) containers] **********
+2024-02-16 14:49:26,412 p=7055 u=centos n=ansible | changed: [eric]
+2024-02-16 14:49:26,431 p=7055 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Run docker-compose up] ***********************************************************************
+2024-02-16 14:50:06,647 p=7055 u=centos n=ansible | fatal: [eric]: FAILED! => {"changed": true, "cmd": ["/usr/local/bin/docker-compose", "-f", "docker-compose.yml", "up", "-d"], "delta": "0:00:39.646231", "end": "2024-02-16 14:50:06.599132", "msg": "non-zero return code", "rc": 1, "start": "2024-02-16 14:49:26.952901", "stderr": "Creating network \"compose-wordpress_wp\" with driver \"bridge\"\nPulling db (mysql:5.7)...\nPulling wordpress (wordpress:5.2.4-apache)...\nCreating db ... \r\nCreating db ... done\r\nCreating wp ... \r\nHost is already in use by another container\nCreating wp ... error\r\n\nERROR: for wp  Cannot start service wordpress: driver failed programming external connectivity on endpoint wp (8a99a80e25b51dbb5cf368a213378f6a146d9ff07480d1d32ae04e98b0fe6876): Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use\n\nERROR: for wordpress  Cannot start service wordpress: driver failed programming external connectivity on endpoint wp (8a99a80e25b51dbb5cf368a213378f6a146d9ff07480d1d32ae04e98b0fe6876): Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use\nEncountered errors while bringing up the project.", "stderr_lines": ["Creating network \"compose-wordpress_wp\" with driver \"bridge\"", "Pulling db (mysql:5.7)...", "Pulling wordpress (wordpress:5.2.4-apache)...", "Creating db ... ", "Creating db ... done", "Creating wp ... ", "Host is already in use by another container", "Creating wp ... error", "", "ERROR: for wp  Cannot start service wordpress: driver failed programming external connectivity on endpoint wp (8a99a80e25b51dbb5cf368a213378f6a146d9ff07480d1d32ae04e98b0fe6876): Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use", "", "ERROR: for wordpress  Cannot start service wordpress: driver failed programming external connectivity on endpoint wp (8a99a80e25b51dbb5cf368a213378f6a146d9ff07480d1d32ae04e98b0fe6876): Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use", "Encountered errors while bringing up the project."], "stdout": "5.7: Pulling from library/mysql\nDigest: sha256:4bc6bc963e6d8443453676cae56536f4b8156d78bae03c0145cbe47c2aad73bb\nStatus: Downloaded newer image for mysql:5.7\n5.2.4-apache: Pulling from library/wordpress\nDigest: sha256:546e4bc9198845d8a1c89e212f73e520176759f3c625280b7a2f668bbabb19a8\nStatus: Downloaded newer image for wordpress:5.2.4-apache", "stdout_lines": ["5.7: Pulling from library/mysql", "Digest: sha256:4bc6bc963e6d8443453676cae56536f4b8156d78bae03c0145cbe47c2aad73bb", "Status: Downloaded newer image for mysql:5.7", "5.2.4-apache: Pulling from library/wordpress", "Digest: sha256:546e4bc9198845d8a1c89e212f73e520176759f3c625280b7a2f668bbabb19a8", "Status: Downloaded newer image for wordpress:5.2.4-apache"]}
+2024-02-16 14:50:06,649 p=7055 u=centos n=ansible | PLAY RECAP ********************************************************************************************************************************
+2024-02-16 14:50:06,650 p=7055 u=centos n=ansible | eric                       : ok=7    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-16 14:52:44,483 p=7248 u=centos n=ansible | PLAY [Installation Wordpress] *************************************************************************************************************
+2024-02-16 14:52:44,504 p=7248 u=centos n=ansible | TASK [Gathering Facts] ********************************************************************************************************************
+2024-02-16 14:52:46,123 p=7248 u=centos n=ansible | ok: [eric]
+2024-02-16 14:52:46,144 p=7248 u=centos n=ansible | TASK [delete nginx] ***********************************************************************************************************************
+2024-02-16 14:52:48,400 p=7248 u=centos n=ansible | changed: [eric]
+2024-02-16 14:52:48,420 p=7248 u=centos n=ansible | TASK [creation user www-data] *************************************************************************************************************
+2024-02-16 14:52:49,016 p=7248 u=centos n=ansible | ok: [eric]
+2024-02-16 14:52:49,033 p=7248 u=centos n=ansible | TASK [download docker_compose] ************************************************************************************************************
+2024-02-16 14:52:49,786 p=7248 u=centos n=ansible | ok: [eric]
+2024-02-16 14:52:49,820 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Setup compose dir structure] *****************************************************************
+2024-02-16 14:52:50,404 p=7248 u=centos n=ansible | changed: [eric] => (item=wordpress)
+2024-02-16 14:52:50,768 p=7248 u=centos n=ansible | ok: [eric] => (item=wp-db-data)
+2024-02-16 14:52:51,132 p=7248 u=centos n=ansible | ok: [eric] => (item=logs/nginx)
+2024-02-16 14:52:51,161 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Create docker-compose.yml file] **************************************************************
+2024-02-16 14:52:51,522 p=7248 u=centos n=ansible | changed: [eric]
+2024-02-16 14:52:51,548 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Deploy uploads.ini to WordPress "/home/centos/compose-wordpress" dir] ************************
+2024-02-16 14:52:52,401 p=7248 u=centos n=ansible | changed: [eric]
+2024-02-16 14:52:52,420 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Deploy Docker Compose project for Wordpress/MySQL/Nginx (Let's Encrypt) containers] **********
+2024-02-16 14:52:53,111 p=7248 u=centos n=ansible | ok: [eric]
+2024-02-16 14:52:53,137 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Run docker-compose up] ***********************************************************************
+2024-02-16 14:52:55,077 p=7248 u=centos n=ansible | changed: [eric]
+2024-02-16 14:52:55,128 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : Waiting for all containers to start up and foolcontrol.org to be accessible] *****************
+2024-02-16 14:52:56,102 p=7248 u=centos n=ansible | ok: [eric]
+2024-02-16 14:52:56,121 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : debug] ***************************************************************************************
+2024-02-16 14:52:56,168 p=7248 u=centos n=ansible | ok: [eric] => {
+    "msg": "Site is reachable"
+}
+2024-02-16 14:52:56,187 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : debug] ***************************************************************************************
+2024-02-16 14:52:56,213 p=7248 u=centos n=ansible | skipping: [eric]
+2024-02-16 14:52:56,231 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : debug] ***************************************************************************************
+2024-02-16 14:52:56,293 p=7248 u=centos n=ansible | ok: [eric] => {
+    "msg": [
+        "With specified variables, following configuration has been made:",
+        "",
+        "URL used for Nginx virtual host: foolcontrol.org",
+        "Specified URL is live/DNS is setup: staging",
+        "WordPress Docker image version:5.2.4",
+        "WORDPRESS_DB_NAME: wordpress",
+        "WORDPRESS_TABLE_PREFIX: wp_",
+        "WORDPRESS_DB_HOST: mysql",
+        "WORDPRESS_DB_USER: admin",
+        "WORDPRESS_DB_PASSWORD: change-M3",
+        "MYSQL_ROOT_PASSWORD: change-M3",
+        "MYSQL_DATABASE: wordpress",
+        "MYSQL_USER: admin",
+        "MYSQL_PASSWORD: change-M3"
+    ]
+}
+2024-02-16 14:52:56,312 p=7248 u=centos n=ansible | TASK [ansible-role-containerized-wordpress : debug] ***************************************************************************************
+2024-02-16 14:52:56,382 p=7248 u=centos n=ansible | ok: [eric] => {
+    "msg": [
+        "Setup successfully complete.",
+        "",
+        "Wordpress instance is available on following IP: eric",
+        "If DNS is pointing to this IP, it'll be available on: foolcontrol.org"
+    ]
+}
+2024-02-16 14:52:56,444 p=7248 u=centos n=ansible | PLAY RECAP ********************************************************************************************************************************
+2024-02-16 14:52:56,444 p=7248 u=centos n=ansible | eric                       : ok=13   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
