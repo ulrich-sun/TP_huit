@@ -1,5 +1,4 @@
-# ansible_user: "{{ vault_ansible_user }}"
-# ansible_password: "{{ vault_ansible_password }}"
-ansible_password: "oszdibcn45kpzdczdczjorvbjo"
-ansible_user: "centos"
+ansible_user: "{{ vault_ansible_user }}"
+ansible_password: "{{ vault_ansible_password }}"
+
 ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
