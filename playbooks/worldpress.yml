@@ -4,9 +4,9 @@
   become: true
   # vars_files:
   #   - ../files/secrets/credentials.yml
-  vars:
-    ansible_password: "oszdibcn45kpzdczdczjorvbjo"
-    ansible_user: "centos"
+  # vars:
+  #   ansible_password: "oszdibcn45kpzdczdczjorvbjo"
+  #   ansible_user: "centos"
   vars:
     system_user: "{{ ansible_user }}"
   pre_tasks:
